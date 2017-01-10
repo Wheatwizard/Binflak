@@ -14,14 +14,13 @@ charMap = {
 
 def compileEBin(brainSource, debug = False):
 	binSource = 0
-	multiplier = 1
-	for char in brainSource:
+	for char in brainSource[::-1]:
 		binChar = charMap[char]
 		
 		if debug: print(binChar)
 		
-		binSource += binChar * multiplier
-		multiplier *= 5
+		binSource *= 5
+		binSource += binChar
 	return binSource
 
 def compile(brainSource, debug = False):
